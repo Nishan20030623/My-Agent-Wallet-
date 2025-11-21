@@ -56,8 +56,8 @@
         .bank-btn:active { transform: scale(0.95); }
 
         .btn-img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 95%;
+            max-height: 95%;
             object-fit: contain;
         }
 
@@ -184,7 +184,7 @@
         .spacer { width: 50px; flex-shrink: 0; }
 
         /* --- BANK VIEW & MANAGEMENT VIEW --- */
-        #bankView, #managementView, #cashBookView {
+        #bankView, #managementView, #cashBookView, #depositWalletView {
             display: none;
             position: fixed;
             top: 0;
@@ -312,7 +312,7 @@
             margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Changed to center for better icon alignment */
+            align-items: center;
             border-left: 4px solid #ccc;
         }
         .cashbook-card-left { flex-grow: 1; }
@@ -324,12 +324,11 @@
         .cash-out-amount { color: #C62828; }
         .balance-text { font-size: 12px; color: #555; }
         
-        /* NEW Real Delete Icon */
         .cashbook-delete-icon {
             background: transparent;
             border: none;
             cursor: pointer;
-            padding: 5px 10px 5px 15px; /* Added padding for easier tapping */
+            padding: 5px 10px 5px 15px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -337,11 +336,11 @@
         .cashbook-delete-icon svg {
             width: 22px;
             height: 22px;
-            fill: #a0a0a0; /* Softer color */
+            fill: #a0a0a0;
             transition: fill 0.2s;
         }
         .cashbook-delete-icon:hover svg {
-            fill: #c62828; /* Red on hover */
+            fill: #c62828;
         }
 
 
@@ -387,7 +386,141 @@
         #cashInBtn { background-color: #4CAF50; }
         #cashOutBtn { background-color: #F44336; }
 
-        /* --- *** NEW CUSTOM MODAL STYLES *** --- */
+        /* --- DEPOSIT WALLET VIEW STYLES --- */
+        #depositWalletView {
+            background-color: #f4f5f9;
+        }
+        #depositWalletView .header {
+            background: white;
+            color: #333;
+            box-shadow: none;
+            padding: 15px 20px;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+        }
+        #depositWalletView .back-btn {
+            color: #555;
+            font-size: 24px;
+            padding: 0;
+            margin: 0;
+        }
+        .wallet-id-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+        .wallet-notification {
+            font-size: 20px;
+            color: #555;
+        }
+        
+        /* Main Balance Card */
+        .wallet-card {
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        .wallet-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .wallet-balance-large {
+            font-size: 32px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 5px;
+        }
+        .wallet-subtext {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .wallet-progress-bg {
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+        .wallet-progress-fill {
+            height: 100%;
+            background-color: #4e4bf0; 
+            width: 75%;
+        }
+
+        /* Action Buttons Row */
+        .wallet-actions-grid {
+            display: flex;
+            gap: 15px;
+            margin: 0 20px;
+        }
+        .wallet-action-btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 12px;
+            border: none;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            color: #555;
+        }
+        .wallet-action-btn:active { transform: scale(0.98); }
+        .w-icon { font-size: 20px; }
+        .w-green { color: #2e7d32; }
+        .w-red { color: #c62828; }
+        
+        /* Recent Transactions */
+        .recent-trans-label {
+            margin: 20px 20px 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        #depositViewRecents {
+            padding: 0 20px 100px 20px; 
+        }
+        .trans-card {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .trans-icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .bg-green-light { background-color: #e8f5e9; color: #2e7d32; }
+        .bg-red-light { background-color: #ffebee; color: #c62828; }
+        
+        .trans-details { flex-grow: 1; }
+        .trans-id { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 2px; }
+        .trans-id-sub { font-size: 11px; color: #888; }
+        .trans-amount-box { text-align: right; }
+        .trans-amount { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .trans-time { font-size: 11px; color: #999; }
+
+        /* --- MODAL & BANK SELECTION STYLES --- */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -408,15 +541,20 @@
             width: 90%;
             max-width: 350px;
             box-sizing: border-box;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
         }
         .modal-title {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 15px;
             color: #333;
+            flex-shrink: 0;
         }
         .modal-body {
             margin-bottom: 20px;
+            overflow-y: auto; 
         }
         .modal-body-text {
             font-size: 15px;
@@ -436,6 +574,7 @@
             display: flex;
             justify-content: flex-end;
             gap: 10px;
+            flex-shrink: 0;
         }
         .modal-btn {
             padding: 10px 20px;
@@ -453,6 +592,73 @@
             background-color: #f0f0f0;
             color: #333;
         }
+        
+        /* Bank Selection Grid in Modal */
+        .bank-select-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .bank-select-btn {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px 5px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #444;
+            cursor: pointer;
+            font-size: 13px;
+            text-align: center;
+        }
+        .bank-select-btn:active {
+            background: #e0e0e0;
+            transform: scale(0.98);
+        }
+
+        /* --- BEAUTIFUL SUCCESS BANNER --- */
+        .success-banner {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff5252; /* Nice Red */
+            color: white;
+            border-radius: 40px;
+            padding: 12px 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 300;
+            align-items: center;
+            gap: 12px;
+            animation: slideUpFade 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-width: 280px;
+        }
+        
+        @keyframes slideUpFade { 
+            from { bottom: -50px; opacity: 0; } 
+            to { bottom: 30px; opacity: 1; } 
+        }
+        
+        .success-icon-circle {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            color: #ff5252;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .success-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .success-head { font-size: 15px; font-weight: 700; }
+        .success-sub { font-size: 12px; opacity: 0.9; line-height: 1.3; }
 
     </style>
 </head>
@@ -462,6 +668,11 @@
     <div id="homeScreen">
         <div class="home-scroll-area">
             <div class="container">
+                <!-- DEPOSIT BUTTON -->
+                <button class="bank-btn" onclick="openDepositView()">
+                    <img src="https://i.postimg.cc/k5fBnVyb/aladdin2u-My-Biz-Cart-119312.png" alt="Deposit" class="btn-img">
+                </button>
+
                 <button class="bank-btn" onclick="openBank('BOC')"><img src="https://i.postimg.cc/t4XjM4Q3/Boc.png" alt="BOC" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('Peoples')"><img src="https://i.postimg.cc/Ss47W3zk/images-(11).jpg" alt="Peoples" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('Dialog')"><img src="https://i.postimg.cc/cJxLwcLy/dialog-finance-(1).jpg" alt="Dialog" class="btn-img"></button>
@@ -470,11 +681,14 @@
                 <button class="bank-btn" onclick="openBank('iPay')"><img src="https://i.postimg.cc/jjfL44p4/unnamed-(1).jpg" alt="iPay" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('Binance')"><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Binance_Logo.png" alt="Binance" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('Personal')"><img src="https://i.postimg.cc/sXvyJjGz/images-(1).png" alt="Personal" class="btn-img"></button>
+                
+                <!-- GAMBLING BUTTONS (ON HOME SCREEN) -->
                 <button class="bank-btn" onclick="openBank('1xBet')"><img src="https://i.postimg.cc/KjjKBH3z/1001096833.png" alt="1xBet" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('Melbet')"><img src="https://i.postimg.cc/FFgB1tB9/Melbet-Logo.webp" alt="Melbet" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('888starz')"><img src="https://i.postimg.cc/B6fmQN5D/888starz-logo.png" alt="888starz" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('Db Bet')"><img src="https://i.postimg.cc/JhZQgZwG/doublebet-logo.png" alt="Db Bet" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('Pari Puls')"><img src="https://i.postimg.cc/BZ7P44R5/1001096835.png" alt="Pari Puls" class="btn-img"></button>
+
                 <button class="bank-btn" onclick="openBank('Hand')"><img src="https://i.postimg.cc/PqXG5s83/1001096915.jpg" alt="Hand" class="btn-img"></button>
                 <button class="bank-btn" onclick="openBank('WebManagement')"><img src="https://i.postimg.cc/YSYxZh9p/1001096932.png" alt="Web Management" class="btn-img"></button>
                 <button class="bank-btn" onclick="openManagementView()"><img src="https://i.postimg.cc/Bb7S3Z6b/management-icon-logo-modern-line-style-high-quality-black-outline-pictogram-web-site-design-mobile-a.jpg" alt="Daily Summary" class="btn-img"></button>
@@ -522,8 +736,40 @@
             </div>
         </div>
     </div>
+
+    <!-- 5. DEPOSIT WALLET VIEW -->
+    <div id="depositWalletView">
+        <div class="header">
+             <button class="back-btn" onclick="goBack()">&#8592;</button>
+             <span class="wallet-id-title">ID 1404282</span>
+             <span class="wallet-notification">&#128276;</span>
+        </div>
+        <div class="wallet-card">
+            <div class="wallet-label">මුදල් මේස සීමාව</div>
+            <div class="wallet-balance-large" id="walletViewBalance">26.00 Re</div>
+            <div class="wallet-subtext" id="walletViewSubtext">ශේෂය: 0.00 Re</div>
+            
+            <div class="wallet-progress-bg">
+                <div class="wallet-progress-fill"></div>
+            </div>
+        </div>
+        
+        <div class="wallet-actions-grid">
+            <button class="wallet-action-btn" onclick="initiateDepositFlow()">
+                <span class="w-icon w-green">&darr;</span>
+                <span style="color:#2e7d32">තැන්පත් කරන්න</span>
+            </button>
+            <button class="wallet-action-btn" onclick="initiateWithdrawFlow()">
+                <span class="w-icon w-red">&uarr;</span>
+                <span style="color:#c62828">මුදල් ආපසු ගන්න</span>
+            </button>
+        </div>
+
+        <div class="recent-trans-label">මෑත ගනුදෙනු</div>
+        <div class="transaction-list" id="depositViewRecents"></div>
+    </div>
     
-    <!-- 5. *** NEW CUSTOM MODAL *** -->
+    <!-- 6. MODAL -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="custom-modal">
             <div class="modal-title" id="modalTitle"></div>
@@ -535,10 +781,29 @@
         </div>
     </div>
 
+    <!-- 7. BEAUTIFUL SUCCESS BANNER -->
+    <div id="successBanner" class="success-banner">
+        <div class="success-icon-circle">&#10003;</div>
+        <div class="success-content">
+            <div class="success-head">Success!</div>
+            <div class="success-sub" id="successMsg">Transaction processed</div>
+        </div>
+    </div>
+
     <script>
         let currentBank = "";
         let selectedDateKey = "";
         let allData = {}; 
+
+        // --- LISTS CONFIGURATION ---
+        // Deposit List (Gambling apps removed)
+        const depositBanks = [
+            'BOC', 'Peoples', 'Dialog', 'ComBank', 'EzCash', 'iPay', 
+            'Binance', 'Personal', 'Hand', 'WebManagement'
+        ];
+
+        // Withdraw List (Only Gambling Apps)
+        const gamblingApps = ['1xBet', 'Melbet', '888starz', 'Db Bet', 'Pari Puls'];
 
         // --- MODAL ELEMENTS ---
         const modalOverlay = document.getElementById('modalOverlay');
@@ -551,8 +816,9 @@
         function showCustomConfirm(title, message, onConfirm) {
             modalTitle.innerText = title;
             modalBody.innerHTML = `<div class="modal-body-text">${message}</div>`;
-            modalOkBtn.innerText = 'Delete';
-            modalCancelBtn.innerText = 'Cancel';
+            modalOkBtn.style.display = 'block';
+            modalOkBtn.innerText = 'Yes';
+            modalCancelBtn.innerText = 'No';
 
             modalOverlay.style.display = 'flex';
 
@@ -570,11 +836,12 @@
                 bodyHtml += `<input type="${field.type || 'text'}" id="${field.id}" class="modal-input" placeholder="${field.placeholder}">`;
             });
             modalBody.innerHTML = bodyHtml;
+            modalOkBtn.style.display = 'block';
             modalOkBtn.innerText = options.okText || 'OK';
             modalCancelBtn.innerText = 'Cancel';
 
             modalOverlay.style.display = 'flex';
-            document.getElementById(options.fields[0].id).focus();
+            setTimeout(() => document.getElementById(options.fields[0].id).focus(), 100);
 
             const handleOkClick = () => {
                 const values = {};
@@ -600,11 +867,36 @@
             modalCancelBtn.onclick = hideModal;
         }
 
+        function showBankSelectionModal(amount, list, onSelect) {
+            modalTitle.innerText = "Select Account";
+            let buttonsHtml = '<div class="bank-select-grid">';
+            list.forEach(bank => {
+                // Change display name for 'Personal' to 'Add Loan' in the list
+                let displayName = bank;
+                if(bank === 'Personal') displayName = 'Add Loan';
+                
+                buttonsHtml += `<div class="bank-select-btn" onclick="window.modalBankSelect('${bank}')">${displayName}</div>`;
+            });
+            buttonsHtml += '</div>';
+            
+            modalBody.innerHTML = buttonsHtml;
+            modalOkBtn.style.display = 'none'; 
+            modalCancelBtn.innerText = 'Cancel';
+            modalOverlay.style.display = 'flex';
+
+            window.modalBankSelect = (bank) => {
+                hideModal();
+                onSelect(bank);
+            };
+            
+            modalCancelBtn.onclick = hideModal;
+        }
+
         function hideModal() {
             modalOverlay.style.display = 'none';
         }
 
-        // --- MAIN APP LOGIC (unchanged from before) ---
+        // --- MAIN APP LOGIC ---
         window.onload = function() {
             const savedData = localStorage.getItem('bankingAppDateV4');
             if (savedData) {
@@ -647,14 +939,19 @@
             if(document.getElementById('bankView').style.display === 'flex'){ renderList(); updateBankHeader(); }
             if(document.getElementById('managementView').style.display === 'flex'){ renderManagementList(); }
             if(document.getElementById('cashBookView').style.display === 'flex'){ renderCashBook(); }
+            if(document.getElementById('depositWalletView').style.display === 'flex'){ renderWalletView(); }
         }
 
         function openBank(bankName) {
             currentBank = bankName;
-            ['homeScreen', 'managementView', 'cashBookView'].forEach(id => document.getElementById(id).style.display = 'none');
+            hideAllViews();
             document.getElementById('bankView').style.display = 'flex';
             updateBankHeader();
             renderList();
+        }
+
+        function hideAllViews() {
+            ['homeScreen', 'managementView', 'cashBookView', 'bankView', 'depositWalletView'].forEach(id => document.getElementById(id).style.display = 'none');
         }
 
         function updateBankHeader() {
@@ -664,7 +961,7 @@
         }
 
         function goBack() {
-            ['bankView', 'managementView', 'cashBookView'].forEach(id => document.getElementById(id).style.display = 'none');
+            hideAllViews();
             document.getElementById('homeScreen').style.display = 'block';
             document.getElementById('amountInput').value = "";
             calculateAllTotals(); 
@@ -676,18 +973,8 @@
                 const amount = parseFloat(input.value);
                 if (!amount || amount <= 0) { alert("Enter valid amount"); return; }
                 
-                if (currentBank === 'Personal') {
-                    if (!allData.persistentLoan) allData.persistentLoan = [];
-                    allData.persistentLoan.push({ val: amount, desc: note.trim() || "Unnamed Loan" });
-                } else if (currentBank === 'Hand') {
-                    if (!allData.persistentHand) allData.persistentHand = [];
-                    allData.persistentHand.push(amount);
-                } else {
-                    if (!allData[selectedDateKey]) allData[selectedDateKey] = {};
-                    if (!allData[selectedDateKey][currentBank]) allData[selectedDateKey][currentBank] = [];
-                    allData[selectedDateKey][currentBank].push(note ? { val: amount, desc: note } : amount);
-                }
-                saveData();
+                saveTransactionToData(currentBank, amount, note);
+                
                 input.value = "";
                 input.focus();
                 renderList();
@@ -706,6 +993,24 @@
             }
         }
 
+        function saveTransactionToData(bank, amount, note) {
+            const newTx = { val: amount, desc: note, time: Date.now() };
+
+            if (bank === 'Personal') {
+                if (!allData.persistentLoan) allData.persistentLoan = [];
+                allData.persistentLoan.push(newTx);
+            } else if (bank === 'Hand') {
+                if (!allData.persistentHand) allData.persistentHand = [];
+                // Push object for Hand to support undo in wallet view
+                allData.persistentHand.push(newTx);
+            } else {
+                if (!allData[selectedDateKey]) allData[selectedDateKey] = {};
+                if (!allData[selectedDateKey][bank]) allData[selectedDateKey][bank] = [];
+                allData[selectedDateKey][bank].push(note ? newTx : { val: amount, desc: "", time: Date.now() });
+            }
+            saveData();
+        }
+
         function renderList() {
             const listContainer = document.getElementById('listContainer'); listContainer.innerHTML = "";
             let transactions = [];
@@ -718,9 +1023,10 @@
                 const originalIndex = transactions.length - 1 - revIndex;
                 const card = document.createElement('div'); card.className = 'card'; card.style.borderLeftColor = cardBorderColor;
                 let amountVal = (typeof item === 'object') ? item.val : item;
+                let desc = (typeof item === 'object') ? item.desc : "";
                 card.innerHTML = `
                     <div class="card-info">
-                        ${typeof item === 'object' && item.desc ? `<span class="note-text">${item.desc}</span>` : ''}
+                        ${desc ? `<span class="note-text">${desc}</span>` : ''}
                         <span class="amount-text">Rs. ${amountVal.toFixed(2)}</span>
                     </div>
                     <button class="delete-btn" onclick="deleteTransaction(${originalIndex})">Delete</button>`;
@@ -744,7 +1050,9 @@
         
         function calculateAllTotals() {
             let fullAmount = 0, loanAmount = 0, handAmount = 0;
-            if (allData.persistentHand) handAmount = allData.persistentHand.reduce((s, a) => s + a, 0);
+            if (allData.persistentHand) {
+                handAmount = allData.persistentHand.reduce((s, a) => s + ((typeof a === 'object') ? a.val : a), 0);
+            }
             if (allData.persistentLoan) loanAmount = allData.persistentLoan.reduce((s, i) => s + i.val, 0);
             const dayData = allData[selectedDateKey]; 
             if (dayData) {
@@ -763,12 +1071,13 @@
             const displayEl = document.getElementById('mainTotalDisplay');
             displayEl.innerText = "Rs. " + grandTotal.toFixed(2);
             displayEl.classList.toggle('negative', grandTotal < 0);
+            return grandTotal;
         }
 
         function saveData() { localStorage.setItem('bankingAppDateV4', JSON.stringify(allData)); }
         document.getElementById("amountInput").addEventListener("keypress", (e) => { if (e.key === "Enter") addTransaction(); });
         function openManagementView() {
-            ['homeScreen', 'bankView', 'cashBookView'].forEach(id => document.getElementById(id).style.display = 'none');
+            hideAllViews();
             document.getElementById('managementView').style.display = 'flex';
             renderManagementList();
         }
@@ -776,7 +1085,7 @@
             const container = document.getElementById('managementListContainer'); container.innerHTML = ""; let hasEntries = false;
             const loanTotal = (allData.persistentLoan || []).reduce((s, i) => s + i.val, 0);
             if (loanTotal > 0) { createSummaryCard(container, "Loan (Personal)", loanTotal, '#c62828'); hasEntries = true; }
-            const handTotal = (allData.persistentHand || []).reduce((s, a) => s + a, 0);
+            const handTotal = (allData.persistentHand || []).reduce((s, a) => s + ((typeof a === 'object') ? a.val : a), 0);
             if (handTotal > 0) { createSummaryCard(container, "Hand", handTotal, '#00796b'); hasEntries = true; }
             const dayData = allData[selectedDateKey] || {};
             for (const bankKey in dayData) {
@@ -792,90 +1101,208 @@
             container.appendChild(card);
         }
 
-        // --- *** UPDATED CASH BOOK FUNCTIONS *** ---
+        // --- CASH BOOK FUNCTIONS ---
         function openCashBookView() {
-            ['homeScreen', 'bankView', 'managementView'].forEach(id => document.getElementById(id).style.display = 'none');
+            hideAllViews();
             document.getElementById('cashBookView').style.display = 'flex';
             renderCashBook();
         }
-
         function handleCashBookEntry(type) {
-            const typeText = type === 'in' ? 'In' : 'Out';
+             const typeText = type === 'in' ? 'In' : 'Out';
             showCustomPrompt({
                 title: `Add Cash ${typeText} Entry`,
                 okText: 'Save Entry',
                 fields: [
-                    { id: 'cbDesc', placeholder: 'Description (e.g., Salary, Rent)', required: true },
+                    { id: 'cbDesc', placeholder: 'Description', required: true },
                     { id: 'cbAmount', placeholder: 'Amount', type: 'number', required: true }
                 ],
                 onConfirm: (values) => {
                     const amount = parseFloat(values.cbAmount);
-                    if (isNaN(amount) || amount <= 0) { alert("Please enter a valid positive amount."); return; }
-                    
-                    const newEntry = {
-                        id: Date.now(),
-                        desc: values.cbDesc,
-                        amount: type === 'in' ? amount : -amount,
-                        timestamp: new Date().toISOString(),
-                        type: type
-                    };
-                    allData.cashBookEntries.push(newEntry);
-                    saveData();
-                    renderCashBook();
+                    if (isNaN(amount) || amount <= 0) return;
+                    allData.cashBookEntries.push({
+                        id: Date.now(), desc: values.cbDesc, amount: type === 'in' ? amount : -amount, timestamp: new Date().toISOString(), type: type
+                    });
+                    saveData(); renderCashBook();
                 }
             });
         }
-
         function deleteCashBookTransaction(id) {
-            showCustomConfirm('Confirm Deletion', 'Are you sure you want to delete this cash book entry?', () => {
+             showCustomConfirm('Delete?', 'Confirm delete.', () => {
                 const index = allData.cashBookEntries.findIndex(entry => entry.id === id);
-                if (index > -1) {
-                    allData.cashBookEntries.splice(index, 1);
-                    saveData();
-                    renderCashBook();
-                }
+                if (index > -1) { allData.cashBookEntries.splice(index, 1); saveData(); renderCashBook(); }
             });
         }
-
         function renderCashBook() {
             const container = document.getElementById('cashBookListContainer'); container.innerHTML = '';
             let totalIn = 0, totalOut = 0;
             allData.cashBookEntries.forEach(e => { (e.amount > 0) ? totalIn += e.amount : totalOut += Math.abs(e.amount); });
-            const finalBalance = totalIn - totalOut;
-
             document.getElementById('cbTotalIn').innerText = totalIn.toFixed(2);
             document.getElementById('cbTotalOut').innerText = totalOut.toFixed(2);
-            document.getElementById('cbBalance').innerText = finalBalance.toFixed(2);
+            document.getElementById('cbBalance').innerText = (totalIn - totalOut).toFixed(2);
+            
+             [...allData.cashBookEntries].reverse().forEach(entry => {
+                 const card = document.createElement('div'); card.className = 'cashbook-card';
+                 card.innerHTML = `<div class="cashbook-card-left"><div class="cashbook-desc">${entry.desc}</div></div><div class="cashbook-card-right"><div class="cashbook-amount">${Math.abs(entry.amount)}</div></div>`;
+                 container.appendChild(card);
+             });
+        }
 
-            if (allData.cashBookEntries.length === 0) {
-                container.innerHTML = `<p style="text-align: center; color: #888; margin-top: 50px;">No entries yet. Use buttons below.</p>`; return;
+        // --- NEW: DEPOSIT WALLET FUNCTIONS ---
+        function openDepositView() {
+            hideAllViews();
+            document.getElementById('depositWalletView').style.display = 'flex';
+            renderWalletView();
+        }
+
+        function renderWalletView() {
+            const total = calculateAllTotals();
+            document.getElementById('walletViewBalance').innerText = total.toFixed(2) + " Re";
+            document.getElementById('walletViewSubtext').innerText = "ශේෂය: " + total.toFixed(2) + " Re";
+            
+            const container = document.getElementById('depositViewRecents');
+            container.innerHTML = "";
+            
+            let allTx = [];
+            
+            const pushTx = (source, bankName) => {
+                if(!source) return;
+                source.forEach((item, idx) => {
+                    if(typeof item === 'object' && item.time) {
+                        allTx.push({ ...item, bank: bankName, originalIndex: idx, isHand: bankName==='Hand', isLoan: bankName==='Personal' });
+                    }
+                });
+            };
+            
+            if(allData.persistentHand) pushTx(allData.persistentHand, 'Hand');
+            if(allData.persistentLoan) pushTx(allData.persistentLoan, 'Personal');
+            if(allData[selectedDateKey]) {
+                for(let key in allData[selectedDateKey]) {
+                    pushTx(allData[selectedDateKey][key], key);
+                }
             }
-
-            const entriesWithBalance = []; let runningBalance = 0;
-            allData.cashBookEntries.forEach(entry => { runningBalance += entry.amount; entriesWithBalance.push({ ...entry, balance: runningBalance }); });
-
-            entriesWithBalance.reverse().forEach(entry => {
-                const card = document.createElement('div'); card.className = 'cashbook-card';
-                const date = new Date(entry.timestamp);
-                const formattedDate = date.toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-
+            
+            allTx.sort((a,b) => b.time - a.time);
+            
+            const now = Date.now();
+            
+            allTx.forEach(tx => {
+                const iconHtml = tx.val >= 0 
+                    ? `<div class="trans-icon-box bg-green-light"><span style="font-size:18px;">&darr;</span></div>`
+                    : `<div class="trans-icon-box bg-red-light"><span style="font-size:18px;">&uarr;</span></div>`;
+                
+                const sign = tx.val >= 0 ? "+" : "";
+                const displayVal = Math.abs(tx.val).toFixed(2);
+                const dateObj = new Date(tx.time);
+                const dateStr = dateObj.toLocaleDateString() + " / " + dateObj.toLocaleTimeString();
+                const isUndoable = (now - tx.time) < 300000; // 5 mins
+                
+                const card = document.createElement('div');
+                card.className = 'trans-card';
+                if(isUndoable) {
+                    card.onclick = () => confirmUndo(tx);
+                }
+                
                 card.innerHTML = `
-                    <div class="cashbook-card-left">
-                        <div class="cashbook-desc">${entry.desc}</div>
-                        <div class="cashbook-datetime">${formattedDate}</div>
+                    ${iconHtml}
+                    <div class="trans-details">
+                        <div class="trans-id">${tx.bank} ${tx.desc ? '('+tx.desc+')' : ''}</div>
+                        <div class="trans-id-sub">ID ${tx.time.toString().slice(-9)}</div>
                     </div>
-                    <div class="cashbook-card-right">
-                        <div class="cashbook-amount ${entry.type === 'in' ? 'cash-in-amount' : 'cash-out-amount'}">
-                            ${Math.abs(entry.amount).toFixed(2)}
-                        </div>
-                        <div class="balance-text">Balance ${entry.balance.toFixed(2)}</div>
+                    <div class="trans-amount-box">
+                        <div class="trans-amount">${sign} ${displayVal} Re</div>
+                        <div class="trans-time">${dateStr}</div>
                     </div>
-                    <button class="cashbook-delete-icon" onclick="deleteCashBookTransaction(${entry.id})">
-                        <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
-                    </button>`;
+                `;
                 container.appendChild(card);
             });
         }
+
+        function initiateDepositFlow() {
+            showCustomPrompt({
+                title: 'තැන්පත් මුදල ඇතුලත් කරන්න',
+                okText: 'ඊළඟ',
+                fields: [{ id: 'depAmount', placeholder: 'Amount', type: 'number', required: true }],
+                onConfirm: (values) => {
+                    const amount = parseFloat(values.depAmount);
+                    if (!amount || amount <= 0) return;
+                    
+                    // Use filtered Deposit List
+                    showBankSelectionModal(amount, depositBanks, (selectedBank) => {
+                        if (selectedBank === 'Personal' || selectedBank === 'WebManagement') {
+                             showCustomPrompt({
+                                title: `Enter Name`,
+                                fields: [{ id: 'depNote', placeholder: 'Name', required: true }],
+                                okText: 'Confirm',
+                                onConfirm: (noteValues) => finalizeTx(selectedBank, amount, noteValues.depNote)
+                            });
+                        } else {
+                            finalizeTx(selectedBank, amount, "");
+                        }
+                    });
+                }
+            });
+        }
+
+        function initiateWithdrawFlow() {
+            showCustomPrompt({
+                title: 'මුදල් ආපසු ගන්න',
+                okText: 'ඊළඟ',
+                fields: [{ id: 'wdAmount', placeholder: 'Amount', type: 'number', required: true }],
+                onConfirm: (values) => {
+                    const amount = parseFloat(values.wdAmount);
+                    if (!amount || amount <= 0) return;
+                    
+                    // Use Gambling Apps List for Withdraw
+                    showBankSelectionModal(amount, gamblingApps, (selectedBank) => {
+                        // NOTE: USER REQUESTED WITHDRAW TO ADD, NOT SUBTRACT
+                        finalizeTx(selectedBank, amount, "Withdraw"); 
+                    });
+                }
+            });
+        }
+
+        function finalizeTx(bank, amount, note) {
+            saveTransactionToData(bank, amount, note);
+            calculateAllTotals();
+            renderWalletView();
+            
+            // Generate Random ID for display
+            const randomId = Math.floor(Math.random() * 1000000000) + 1000000000;
+            showSuccessNotification("Success!", `${amount.toFixed(2)} Re deposited into account\n${randomId}`);
+        }
+        
+        function confirmUndo(tx) {
+            // Custom "App-Native" Confirmation
+            showCustomConfirm("Cancel Transaction?", "Do you want to remove this transaction?", () => {
+                let targetArr;
+                if(tx.isHand) targetArr = allData.persistentHand;
+                else if(tx.isLoan) targetArr = allData.persistentLoan;
+                else targetArr = allData[selectedDateKey][tx.bank];
+                
+                if(targetArr) {
+                    const idx = targetArr.findIndex(item => (typeof item === 'object' && item.time === tx.time));
+                    if(idx > -1) {
+                        targetArr.splice(idx, 1);
+                        saveData();
+                        renderWalletView();
+                        showSuccessNotification("Cancelled", "Transaction removed successfully");
+                    }
+                }
+            });
+        }
+
+        function showSuccessNotification(title, msg) {
+            const banner = document.getElementById('successBanner');
+            const msgEl = document.getElementById('successMsg');
+            const titleEl = document.querySelector('.success-head');
+            
+            titleEl.innerText = title;
+            msgEl.innerHTML = msg.replace(/\n/g, '<br>');
+            
+            banner.style.display = 'flex';
+            setTimeout(() => { banner.style.display = 'none'; }, 4000);
+        }
+
     </script>
 </body>
 </html>
